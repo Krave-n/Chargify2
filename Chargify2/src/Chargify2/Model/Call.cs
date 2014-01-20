@@ -13,37 +13,48 @@ namespace Chargify2.Model
 
     public class Product
     {
+        public string id { get; set; }
         public string handle { get; set; }
     }
 
     public class PaymentProfile
     {
-        public string expiration_month { get; set; }
-        public string billing_city { get; set; }
         public string first_name { get; set; }
+        public string last_name { get; set; }
+        public string card_number { get; set; }
+        public string expiration_month { get; set; }
+        public string expiration_year { get; set; }
+        public string cvv { get; set; }
+        public string billing_address { get; set; }
+        public string billing_address_2 { get; set; }
+        public string billing_city { get; set; }
         public string billing_state { get; set; }
         public string billing_country { get; set; }
-        public string last_name { get; set; }
-        public string billing_address { get; set; }
         public string billing_zip { get; set; }
-        public string card_number { get; set; }
-        public string expiration_year { get; set; }
     }
 
     public class Customer
     {
-        public string organization { get; set; }
         public string first_name { get; set; }
-        public string email { get; set; }
         public string last_name { get; set; }
+        public string email { get; set; }
+        public string organization { get; set; }
+        public string reference { get; set; }
+        public string phone { get; set; }
+        public string address { get; set; }
+        public string address_2 { get; set; }
+        public string city { get; set; }
+        public string state { get; set; }
+        public string country { get; set; }
+        public string zip { get; set; }
     }
 
     public class Signup
     {
         public Product product { get; set; }
+        public Customer customer { get; set; }
         public PaymentProfile payment_profile { get; set; }
         public Dictionary<string, object> components { get; set; }
-        public Customer customer { get; set; }
     }
 
     public class Secure
@@ -195,10 +206,10 @@ namespace Chargify2.Model
     public class Signup2
     {
         public Subscription subscription { get; set; }
+        public Customer2 customer { get; set; }
         public Product2 product { get; set; }
         public PaymentProfile2 payment_profile { get; set; }
         public NextBillingManifest next_billing_manifest { get; set; }
-        public Customer2 customer { get; set; }
     }
 
     public class Meta
