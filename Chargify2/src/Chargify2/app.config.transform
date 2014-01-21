@@ -2,10 +2,10 @@
 <configuration>
   <configSections>
     <section name="chargify2" type="Chargify2.Configuration.ChargifyAccountRetrieverSection"/>
-  </configSections>
+  </configSections>  
   <chargify2 defaultAccount="YourAccount">
     <accounts>
-      <add name="YourAccount" apiKey="apikey_here" apiPassword="password_here" secret="secret_here" />
+      <add name="YourAccount" apiKey="1eba7b00-62a9-0131-b313-026566b36527" apiPassword="492KB0VcpUAXg3gB2tFR" secret="IyMXXeTsEqYJ4VwHM6Mu" />
     </accounts>
   </chargify2>
 </configuration>

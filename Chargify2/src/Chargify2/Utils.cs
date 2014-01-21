@@ -51,5 +51,16 @@ namespace Chargify2
             request.AddParameter("call_id", call_id, ParameterType.UrlSegment);
             return client.Execute<JObject>(request)["call"].ToObject<Call>();
         }
+
+        public static Response SignUp(this Client client, Request signupRequest)
+        {
+            var request = new RestRequest();
+            request.Resource = "signups";
+            request.Method = Method.POST;
+            request.RootElement = "request";
+            request.RequestFormat = DataFormat.Json;
+            request.AddBody(signupRequest);
+            return client.Execute<JObject>(request).ToObject<Response>();
+        }
     }
 }
