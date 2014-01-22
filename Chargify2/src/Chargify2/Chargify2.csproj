@@ -56,33 +56,35 @@
     <Compile Include="Configuration\ChargifyAccountRetrieverSection.cs" />
     <Compile Include="Direct.cs" />
     <Compile Include="IClient.cs" />
-    <Compile Include="Models\CallResponse.cs" />
-    <Compile Include="Models\NextBillingManifest.cs" />
-    <Compile Include="Models\CustomerResponse.cs" />
-    <Compile Include="Models\SignupResponse.cs" />
-    <Compile Include="Models\Meta.cs" />
-    <Compile Include="Models\Response.cs" />
-    <Compile Include="Models\LineItem.cs" />
-    <Compile Include="Models\PaymentProfileResponse.cs" />
-    <Compile Include="Models\ProductResponse.cs" />
-    <Compile Include="Models\SubscriptionResponse.cs" />
-    <Compile Include="Models\Error.cs" />
-    <Compile Include="Models\Result.cs" />
-    <Compile Include="Models\Request.cs" />
-    <Compile Include="Models\SecureParameters.cs" />
-    <Compile Include="Models\SignupRequest.cs" />
-    <Compile Include="Models\CustomerRequest.cs" />
-    <Compile Include="Models\ProductRequest.cs" />
-    <Compile Include="Models\PaymentProfileRequest.cs" />
+    <Compile Include="Models\v1\ProductV1FamilyComponentResponseWrapper.cs" />
+    <Compile Include="Models\v1\PriceV1.cs" />
+    <Compile Include="Models\v1\ProductV1FamilyComponentResponse.cs" />
+    <Compile Include="Models\v1\ProductV1ResponseWrapper.cs" />
+    <Compile Include="Models\v1\ProductV1Response.cs" />
+    <Compile Include="Models\v2\CallResponse.cs" />
+    <Compile Include="Models\v1\ProductV1Family.cs" />
+    <Compile Include="Models\v2\NextBillingManifest.cs" />
+    <Compile Include="Models\v2\CustomerResponse.cs" />
+    <Compile Include="Models\v2\SignupResponse.cs" />
+    <Compile Include="Models\v2\Meta.cs" />
+    <Compile Include="Models\v2\Response.cs" />
+    <Compile Include="Models\v2\LineItem.cs" />
+    <Compile Include="Models\v2\PaymentProfileResponse.cs" />
+    <Compile Include="Models\v2\ProductResponse.cs" />
+    <Compile Include="Models\v2\SubscriptionResponse.cs" />
+    <Compile Include="Models\v2\Error.cs" />
+    <Compile Include="Models\v2\Result.cs" />
+    <Compile Include="Models\v2\Request.cs" />
+    <Compile Include="Models\v2\SecureParameters.cs" />
+    <Compile Include="Models\v2\SignupRequest.cs" />
+    <Compile Include="Models\v2\CustomerRequest.cs" />
+    <Compile Include="Models\v2\ProductRequest.cs" />
+    <Compile Include="Models\v2\PaymentProfileRequest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Utils.cs" />
+    <Compile Include="Chargify.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="app.config.transform">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      <SubType>Designer</SubType>
-    </Content>
-    <Content Include="Chargify2.nuspec">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <SubType>Designer</SubType>
     </Content>
@@ -90,12 +92,7 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\..\..\..\AT\library\AT.Web\AT.Web.csproj">
-      <Project>{ea122342-a7e6-4de6-87ae-075133e76161}</Project>
-      <Name>AT.Web</Name>
-    </ProjectReference>
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

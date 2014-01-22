@@ -11,7 +11,7 @@ namespace Chargify2
         /// The V2 API key, also documented as "Chargify Direct API ID" on
         /// https://subdomain.chargify.com/settings#chargify-direct
         /// </summary>
-        string ApiKey { get; }
+        string ApiKey { get; }   
 
         /// <summary>
         /// The V2 API password, also documented as "Chargify Direct Password" on
@@ -34,5 +34,10 @@ namespace Chargify2
         /// The direct endpoint class
         /// </summary>
         Direct Direct { get; }
+
+        /// <summary>
+        /// The base url for the endpoint
+        /// </summary>
+        string BaseUrl { get; }
     }
 }

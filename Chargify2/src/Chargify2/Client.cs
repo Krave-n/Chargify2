@@ -16,17 +16,28 @@ namespace Chargify2
 {
     public class Client : IClient
     {
-        const string BaseUrl = "https://api.chargify.com/api/v2";
-
-        readonly string _apiKey;
-        readonly string _apiPassword;
+        //string BaseUrl { get; set; }
+        public bool UseChargifyV1 = false;
+        readonly string _apiKeyV1;
+        readonly string _apiKeyV2;
+        readonly string _apiPasswordV2;
+        readonly string _apiPasswordV1 = "x";
         readonly string _apiSecret;
         readonly Uri _proxy;
 
+        public Client()
+        {
+            this._apiKeyV1 = ConfigurationManager.AppSettings["Chargify.v1.apiKey"];
+            this._apiKeyV2 = ConfigurationManager.AppSettings["Chargify.v2.apiKey"];
+            this._apiPasswordV2 = ConfigurationManager.AppSettings["Chargify.v2.apiPassword"];
+            this._apiSecret = ConfigurationManager.AppSettings["Chargify.v2.secret"];
+            //this._proxy = proxy;
+        }
+
         public Client(string apiKey, string apiPassword, string apiSecret, Uri proxy)
         {
-            this._apiKey = apiKey;
-            this._apiPassword = apiPassword;
+            this._apiKeyV2 = apiKey;
+            this._apiPasswordV2 = apiPassword;
             this._apiSecret = apiSecret;
             this._proxy = proxy;
         }
@@ -54,11 +65,21 @@ namespace Chargify2
             }
         }
 
+        public string BaseUrl
+        {
+            get
+            {
+                if (UseChargifyV1) return "https://krave-n-inc-test-site.chargify.com";
+                else return "https://api.chargify.com/api/v2";
+            }
+        }
+
         public string ApiKey
         {
             get
             {
-                return this._apiKey;
+                if (UseChargifyV1) return this._apiKeyV1;
+                return this._apiKeyV2;
             }
         }
 
@@ -66,7 +87,8 @@ namespace Chargify2
         {
             get
             {
-                return this._apiPassword;
+                if (UseChargifyV1) return this._apiPasswordV1;
+                else return this._apiPasswordV2;
             }
         }
 
@@ -96,7 +118,7 @@ namespace Chargify2
         {
             var client = new RestClient();
             client.BaseUrl = BaseUrl;
-            client.Authenticator = new HttpBasicAuthenticator(this._apiKey, this._apiPassword);
+            client.Authenticator = new HttpBasicAuthenticator(this.ApiKey, this.ApiPassword);
             client.AddHandler("application/json", new DynamicJsonDeserializer());
             client.UserAgent = UserAgent;
             if (this._proxy != null)

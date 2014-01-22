@@ -54,7 +54,7 @@ namespace Chargify2.Configuration
         /// <summary>
         /// The API key (provided in the Chargify account) needed for security reasons
         /// </summary>
-        [ConfigurationProperty("apiKey", IsRequired = true, DefaultValue = "AbCdEfGhIjKlMnOpQrSt")]
+        [ConfigurationProperty("apiKey", IsRequired = true, DefaultValue = "ALZHP4_Fof0v5zHhNYHa")]
         public string ApiKey
         {
             get { return (string)this["apiKey"]; }
